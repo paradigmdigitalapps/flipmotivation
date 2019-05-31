@@ -1,0 +1,24 @@
+runtime: python27
+api_version: 1
+threadsafe: yes
+service: app
+
+
+handlers:
+  # static directory for javasript functions
+- url: /js
+  static_dir: js
+
+# static directory for images
+- url: /img
+  static_dir: img
+
+# accept all calls and route them inside main python file
+- url: /.*
+  script: sd_vote.app
+
+# we use jinja2 templates to generate UI
+libraries:
+- name: jinja2
+  version: latest
+
