@@ -1,0 +1,415 @@
+  {% set defaultvalue_list = ['Delivering value','Easy to release','Fun','Health of codebase','Teamwork'] %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>SuccessDigital Hangolj rá</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script type="text/javascript" src="./js/ajax_script.js"></script>
+
+  <script type="text/javascript" src="./js/siteurlslocal.js"></script>
+
+<style>
+
+
+.feedback {
+  background-color : orange;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border-color: #46b8da;
+  opacity: 0.8;
+}
+
+#feedbackbutton {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  text-align: left;
+  padding-left: 45px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a #33067c background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+#confirmpage  .btn {
+    background-color: #33067c;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+#confirmpage .btn:hover {
+    opacity: 1;
+}
+
+.jumbotron {
+      background-color: #33067c;
+      color: #fff;
+      padding: 30px 30px;
+      font-family: Montserrat, sans-serif;
+}
+
+ .navbar {
+      margin-bottom: 0;
+      background-color: #33067c;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+}
+
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: grey !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+
+  }
+
+.article {
+  padding: 10px;
+  font-size: 15px;
+  font-family: Montserrat, sans-serif;
+}
+
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #33067c;
+    padding: 20px;
+    font-size: 20px;
+    font-family: Montserrat, sans-serif;
+    color:white;
+    border-radius: 5px;
+
+}
+
+.selectone {
+  padding: 4px 11px;
+  font-family: Arial;
+  font-size: 20px;
+  border: 3px solid #333;
+  cursor: pointer;
+}
+
+.striped-border {
+        border: 1px solid #000;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 2px;
+    }
+
+    .greenColor{
+    background-color: #33CC33;
+}
+.redColor{
+    background-color: #E60000;
+}
+
+</style>
+</head>
+<body>
+
+
+<!-- <nav class="nav navbar navbar-default navbar-fixed-top" style="opacity: 0.8">
+    <a id="usensepage" class="navbar-brand" href="#"><button style="background-color: transparent;border-radius: 5px;border: 1px solid white">Főoldal</button></a>
+</nav> -->
+
+<nav class="navbar navbar-default navbar-fixed-top" >
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+<!--         <span class="icon-bar" style="color: yellow"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> -->
+      </button>
+
+      <div class="navbar-brand">
+        <a id="usensepage" href="#" ><button style="background-color: transparent;border-radius: 5px;border: 1px solid white; color: white">Back</button></a>
+      <!-- <a href="#myPage"><span style="color:white" class="glyphicon glyphicon-log-in"></span></a> -->
+
+          {% if url_linktext in 'LOGOUT'%}
+             <a href="#myPage"><span style="color:white" class="glyphicon glyphicon-lock"></span></a>
+          {% else %}
+              <a href="#myPage" style="color:white"><span style="color:white" class="glyphicon glyphicon-user"></span>?</a>
+
+          {% endif %}
+      <!-- <a href="#myPage"><span style="color:white">{{ user }}</span></a> -->
+      </div>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+        <!-- <li><a href="#services">MOTIVÁCIÓ</a></li> -->
+        <!-- <li><a href="#about">MIÉRT</a></li> -->
+        <!-- <li><a href="#portfolio">KOLLÉGÁK</a></li> -->
+        <!-- <li><a href="">{{ url_linktext }}</a></li> -->
+<!--    <li><a href="#pricing">ÁRAK</a></li>
+        <li><a href="#contact">KAPCSOLAT</a></li> -->
+        </ul>
+      </div>
+  </div>
+</nav>
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+<div class="container">
+
+
+{% for user_value in defaultvalue_list %}
+
+
+
+<div class="row">
+
+<div class="col-xs-6">
+
+<p> {{user_value}} </p>
+  </div>
+
+  <div class="col-xs-6">
+
+<select id="id_of_goal{{loop.index}}" onchange="this.style.backgroundColor=this.value">
+<option value="white">vote here</option>
+
+<option value="green">helpful</option>
+<option value="yellow">meh</option>
+<option value="red">disaster</option>
+
+</select>
+  </div>
+
+    </div>
+<br>
+
+
+
+{% endfor %}
+
+    </div>
+
+
+
+
+
+
+
+
+
+<!-- <button onclick="listValues()">Try it</button> -->
+
+<div class="container">
+<p id="demo">  </p>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+function listValues() {
+
+
+  var score_dict = {red:"disaster", yellow:"meh", green:"helpful"};
+
+  var selector1 = document.getElementById('id_of_goal1');
+  var vote_goal1 = selector1[selector1.selectedIndex].value;
+
+
+  var selector2 = document.getElementById('id_of_goal2');
+  var vote_goal2 = selector2[selector2.selectedIndex].value;
+
+
+  var selector3 = document.getElementById('id_of_goal3');
+  var vote_goal3 = selector3[selector3.selectedIndex].value;
+
+  var selector4 = document.getElementById('id_of_goal4');
+  var vote_goal4 = selector4[selector4.selectedIndex].value;
+
+  var selector5 = document.getElementById('id_of_goal5');
+  var vote_goal5 = selector5[selector5.selectedIndex].value;
+
+  var str_score = "";
+  var str_value = "";
+
+  var number = 0 ;
+
+
+  str_goal = "{{ defaultvalue_list[0]}}" + ";" + "{{ defaultvalue_list[1]}}" + ";" + "{{ defaultvalue_list[2]}}" + ";" + "{{ defaultvalue_list[3]}}" + ";" + "{{ defaultvalue_list[4]}}" ;
+  str_score = score_dict[vote_goal1] + ";" + score_dict[vote_goal2] + ";" + score_dict[vote_goal3] + ";" + score_dict[vote_goal4] + ";" + score_dict[vote_goal5] ;
+
+/*if (number != 5) {
+    txt = "You pressed OK!";
+  }*/
+if (vote_goal1 == "white" || vote_goal2 == "white" || vote_goal3 == "white" || vote_goal4 == "white" || vote_goal5 == "white") {
+/*    var response = prompt("say A");*/
+    alert("Kérlek minden szempontot értékelj");
+} else {
+
+  document.getElementById("demo").innerHTML = str_score ;
+  input = str_goal;
+  input_measure = str_score ;
+  measure = 1 ;
+  javascript:ajaxScript() ;
+  }
+
+}
+
+</script>
+
+
+</div>
+</div>
+
+
+
+<div class="container" btn>
+  <div>
+      <button class="btn btn-primary btn-lg" onclick="listValues()" >I confirm my vote</button>
+      <br> <br>
+      <a id="confirmpage" class="btn btn-primary btn-lg" href="#"> << Back </a>
+  </div>
+</div>
+
+
+<br>
+
+<!-- <form  action="/sign?guestbook_name={{ guestbook_name }}" method="post" style="font-family: Montserrat">
+  <div class="form-group" style="margin-left: 10px;margin-right: 10px">
+    <label for="exampleInputEmail1">Melyik elvárással tudsz a legjobban azonosulni?</label>
+    <input name = 'content' type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Írd be szabad szöveggel a választásod">
+    <small id="emailHelp" class="form-text text-muted">Minden javaslattal a közösséget építed.</small>
+  </div>
+  <div class="form-group" style="margin-left: 10px;margin-right: 10px">
+    <label for="exampleInputPassword1">Miért ép ezt választottad? Röviden írd le kérlek.</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Írj ide egy rövid mondatot">
+  </div>
+  <div class="form-check" style="margin-left: 10px;margin-right: 10px">
+    <input name ='values' type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Szeretnék visszajelzést, személyes kozultációt kérni.</label>
+  </div>
+    <br>
+
+  <div style = "padding-left: 15px">  <input type="submit" value="Submit"> </div>
+
+</form> -->
+
+<br>
+
+<!-- <div class="jumbotron text-center">
+
+   <h1>Mérj folyamatosan!</h1>
+   <p> A fenti listában a legfontosabb közös elvárásaitokat látod. Ezek közül Számora melyek váltak eddig valóra, mi az amiben hiszel, amit megad a csoport? Nézz körül és válassz!</p>
+</div> -->
+
+
+
+<<!-- div id="feedbackbutton">
+<a id="evaluatepage" href="#">  <button class="feedback">Értékelés</button> </a>
+</div> -->
+
+<script>
+    document.getElementById("usensepage").href = urlnameusensehome;
+    document.getElementById("confirmpage").href = urlnameusensehome;
+    document.getElementById("evaluatepage").href = urlnameevaluate;
+</script>
+
+</body>
+</html>
